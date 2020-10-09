@@ -41,7 +41,7 @@ function meteo(apiWeather) {
         document.getElementById('today-forecast-main'+i).innerHTML = main;
         document.getElementById('today-forecast-more-info'+i).innerHTML = description;
         document.getElementById('icon-weather-container'+i).innerHTML = icon;
-        document.getElementById('today-forecast-temp'+i).innerHTML = ${temp}°C;
+        document.getElementById('today-forecast-temp'+i).innerHTML = `${temp}°C`;
       }
 
       
