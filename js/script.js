@@ -19,10 +19,9 @@ function refreshCity() {
 function meteo(apiWeather) {
 
   apiWeather
-    .fetchTodayForecast()
+    .getThreeDaysForecast()
     .then(function(response) {
       // Récupère la donnée d'une API
-      const data = response.data;
 
       // i correspond au emplacement des jours
       // 0 : aujourd'hui
@@ -31,10 +30,13 @@ function meteo(apiWeather) {
       // 3 : apres apres demain
 
       for (var i = 0; i < 4; i++) {
-          // On récupère l'information principal
+
+        const data = response.data.list[i];
+
+        // On récupère l'information principal
         const main = data.weather[0].main;
         const description = data.weather[0].description;
-        const temp = data.main.temp;
+        const temp = data.temp.day;
         const icon = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
 
         // Modifier le DOM
